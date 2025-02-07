@@ -28,10 +28,10 @@ module ImageProc(
 );
 
 logic iDVAL;
-logic [11:0] iDATA, oDATA;
+logic [11:0] iDATA;
 logic [11:0] mDATA_1;
 logic [11:0] mDATA_0;
-
+logic [32:0] index_debug;
 
 Line_Buffer1 	BayerPixelBuffer0	(	.clken(iDVAL),
                                         .clock(clk),

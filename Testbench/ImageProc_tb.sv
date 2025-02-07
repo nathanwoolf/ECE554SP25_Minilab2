@@ -1,12 +1,13 @@
+`timescale 1 ps / 1 ps
 module ImageProc_tb();
     logic clk;
     logic rst_n;
     //Signals from Data Capture
-    logic         oDATA,
-    logic [11:0]  oX_Cont,
-    logic	[15:0]	oY_Cont,
-    logic	[31:0]	oFrame_Cont,
-    logic			oDVAL,
+    logic         oDATA;
+    logic [11:0]  oX_Cont;
+    logic	[15:0]	oY_Cont;
+    logic	[31:0]	oFrame_Cont;
+    logic			oDVAL;
     //Signals to SDRAM
     //	FIFO Write Side 1
     logic [15:0]  WR1_DATA;               //Data Input
@@ -27,7 +28,7 @@ module ImageProc_tb();
 
     ImageProc iDUT( .clk(clk), 
                     .rst_n(rst_n), 
-                    .oDATA(), 
+                    .oDATA(oDATA), 
                     .oX_Cont(), 
                     .oY_Cont(), 
                     .oFrame_Cont(), 
@@ -46,13 +47,20 @@ module ImageProc_tb();
                     .WR2_LENGTH(),     				
                     .WR2_LOAD(),			         	
                     .WR2_CLK()	
-    )
+    );
 
     initial begin
         clk = 0;
+        iDUT.iDVAL = 1;
+        iDUT.index_debug = 0;
+        for (integer i = 0; i < 3000; i++) begin
+            iDUT.iDATA = (i + 1) % 1000;
+            iDUT.index_debug = i;
+            @(posedge clk);
+        end
 
-        
-
+        #100
+        $stop;
     end
 
     always 
