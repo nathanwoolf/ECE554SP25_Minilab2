@@ -49,13 +49,17 @@ logic avg_cs;           //control sig to take average of pixel vals
 logic data_valid;
 logic [11:0] calc;      //TODO: verify bit width on calculation vector
 logic [11:0] gs_out;    //single pixel gray scale output vector TODO: determine where this goes next
+reg [1:0] init;
 
 // STATE MACHINE
-typedef enum state {FILL, COMP} state_t;
+typedef enum [1:0] state {FILL_INIT, FILL, COMP} state_t;
 state_t state, next_state;
 
 always_ff @(posedge clk, negedge rst_n) begin 
-    if (!rst_n) state <= FILL
+    if (!rst_n) begin 
+        state <= FILL_INIT
+        init <= '0;
+    end
     else state <= next_state;
 end
 
@@ -105,6 +109,18 @@ always_comb begin
     data_valid = 1'b0;
 
     case (state) 
+        //fill for two rows 
+        FILL_INIT: begin 
+            if (row_cmplt) begin 
+                init <= init + 1;
+            end
+            //does init equal 2?
+            if (init[1]) next_state = COMP;
+            //TODO: idk what oDATA behavior is when nothing has been shifted in. X or 0? might just want to delete this line 
+            //counter should suffice
+            else if(|oDATA !== 0) next_state = COMP;    
+        end
+
         FILL : begin
             if (row_cmplt)
                 next_state = COMP; 
@@ -116,6 +132,8 @@ always_comb begin
             if (row_cmplt)
                 next_state = FILL;
         end
+
+        default: begin end; 
 
     endcase
 end
