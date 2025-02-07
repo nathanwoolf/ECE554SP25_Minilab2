@@ -28,7 +28,7 @@ module ImageProc(
 );
 
 logic iDVAL;
-logic [11:0] iDATA, oDATA;
+logic [11:0] iDATA;
 logic [11:0] mDATA_1;
 logic [11:0] mDATA_1_ff;
 logic [11:0] mDATA_0;

@@ -81,8 +81,8 @@ module Line_Buffer1 (
 		ALTSHIFT_TAPS_component.intended_device_family = "Cyclone V",
 		ALTSHIFT_TAPS_component.lpm_hint = "RAM_BLOCK_TYPE=M10K",
 		ALTSHIFT_TAPS_component.lpm_type = "altshift_taps",
-		ALTSHIFT_TAPS_component.number_of_taps = 2,
-		ALTSHIFT_TAPS_component.tap_distance = 1280,
+		ALTSHIFT_TAPS_component.number_of_taps = 4,
+		ALTSHIFT_TAPS_component.tap_distance = 640,
 		ALTSHIFT_TAPS_component.width = 12;
 
 
