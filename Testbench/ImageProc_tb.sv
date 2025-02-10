@@ -3,59 +3,30 @@ module ImageProc_tb();
     logic clk;
     logic rst_n;
     //Signals from Data Capture
-    logic         oDATA;
-    logic [11:0]  oX_Cont;
-    logic	[15:0]	oY_Cont;
-    logic	[31:0]	oFrame_Cont;
-    logic			oDVAL;
-    //Signals to SDRAM
-    //	FIFO Write Side 1
-    logic [15:0]  WR1_DATA;               //Data Input
-    logic         WR1;					          //Write Request
-    logic [15:0]	WR1_ADDR;				        //Write Start Address
-    logic [15:0]  WR1_MAX_ADDR;			      //Write Max Address
-    logic			WR1_LOAD;			         	//Write FIFO Clear
-    logic [7:0]	WR1_LENGTH;     				//Write Length
-    logic			WR1_CLK;				        //Write FIFO Clock
-    //	FIFO Write Side 2
-    logic [15:0]  WR2_DATA;               //Data Input
-    logic			WR2;					          //Write Request
-    logic	[15:0]	WR2_ADDR;				        //Write Start Address
-    logic	[15:0]	WR2_MAX_ADDR;			      //Write Max Address
-    logic [7:0]	WR2_LENGTH;     				//Write Length
-    logic         WR2_LOAD;			         	//Write FIFO Clear
-    logic         WR2_CLK;	
+    logic [11:0] iDATA;
+    logic [11:0] oDATA;
+    logic oDATAvalid;
+
+    logic index_debug;
 
     ImageProc iDUT( .clk(clk), 
                     .rst_n(rst_n), 
-                    .oDATA(oDATA), 
-                    .oX_Cont(), 
-                    .oY_Cont(), 
-                    .oFrame_Cont(), 
-                    .oDVAL(),
-                    .WR1_DATA(),     
-                    .WR1(),	
-                    .WR1_ADDR(),				 
-                    .WR1_MAX_ADDR(),			    
-                    .WR1_LENGTH(),     				
-                    .WR1_LOAD(),			         	
-                    .WR1_CLK(),				       
-                    .WR2_DATA(),               
-                    .WR2(),					        
-                    .WR2_ADDR(),				        
-                    .WR2_MAX_ADDR(),			   
-                    .WR2_LENGTH(),     				
-                    .WR2_LOAD(),			         	
-                    .WR2_CLK()	
+                    .iDATA(iDATA),
+                    .output_data(oDATA),
+                    .output_valid(oDATAvalid)	
     );
 
     initial begin
+        rst_n = 0;
         clk = 0;
-        iDUT.iDVAL = 1;
-        iDUT.index_debug = 0;
-        for (integer i = 0; i < 3000; i++) begin
-            iDUT.iDATA = (i + 1) % 1000;
-            iDUT.index_debug = i;
+        index_debug = 0;
+
+        repeat (5) @(posedge clk);
+        rst_n = 1;
+        @(posedge clk);
+        for (integer i = 0; i < 5000; i++) begin
+            iDATA = (i + 1) % 1000;
+            index_debug = i;
             @(posedge clk);
         end
 
