@@ -1,0 +1,262 @@
+# Compile of ImageProcessing.sv was successful.
+# Compile of ImageProc_tb.sv failed with 1 errors.
+# 2 compiles, 1 failed with 1 error.
+# Compile of ImageProc_tb.sv failed with 1 errors.
+# Compile of ImageProc_tb.sv was successful.
+vsim work.ImageProc_tb
+# vsim work.ImageProc_tb 
+# Start time: 16:24:37 on Feb 11,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: I:/ece554/ECE554SP25_Minilab2/DE1_SoC_CAMERA/v/ImageProcessing.sv(32): Module 'Line_Buffer2' is not defined.
+#  For instance 'iBayerBuffer' at path 'ImageProc_tb.iDUT'
+# ** Error: I:/ece554/ECE554SP25_Minilab2/DE1_SoC_CAMERA/v/ImageProcessing.sv(40): Module 'Line_Buffer3' is not defined.
+#  For instance 'iGrayBuffer0' at path 'ImageProc_tb.iDUT'
+# ** Error: I:/ece554/ECE554SP25_Minilab2/DE1_SoC_CAMERA/v/ImageProcessing.sv(48): Module 'Line_Buffer3' is not defined.
+#  For instance 'iGrayBuffer1' at path 'ImageProc_tb.iDUT'
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=3, Warnings=0.
+# Error loading design
+# End time: 16:24:42 on Feb 11,2025, Elapsed time: 0:00:05
+# Errors: 3, Warnings: 8
+# Compile of Line_buffer2.v was successful.
+# Compile of Line_Buffer3.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model -vopt work.ImagaProc_tb -voptargs=+acc
+# vsim -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model -vopt work.ImagaProc_tb -voptargs="+acc" 
+# Start time: 16:27:32 on Feb 11,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error: (vopt-13130) Failed to find design unit 'ImagaProc_tb'.
+#         Searched libraries:
+#             C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf
+#             C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model
+#             work
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 16:27:35 on Feb 11,2025, Elapsed time: 0:00:03
+# Errors: 1, Warnings: 4
+vsim -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model -vopt work.ImageProc_tb -voptargs=+acc
+# vsim -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf -L C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/220model -vopt work.ImageProc_tb -voptargs="+acc" 
+# Start time: 16:27:54 on Feb 11,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.ImageProc_tb(fast)
+# Loading work.ImageProcessing(fast)
+# Loading work.Line_Buffer2(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast)
+# Loading work.Line_Buffer3(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast__1)
+# ** Warning: (vsim-PLI-3003) [TOFD] - System task or function '$dipslay' is not defined.
+#    Time: 0 ps  Iteration: 0  Instance: /ImageProc_tb File: I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv Line: 70
+run -all
+# RESETTING
+# waiting for oDVAL
+# ERR: timeout waiting for oDVAL to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv(56)
+#    Time: 12339245 ps  Iteration: 1  Instance: /ImageProc_tb
+# Break in NamedBeginStat odval_to at I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv line 56
+# Compile of ImageProc_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.ImageProc_tb(fast)
+# Loading work.ImageProcessing(fast)
+# Loading work.Line_Buffer2(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast)
+# Loading work.Line_Buffer3(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast__1)
+# ** Warning: (vsim-PLI-3003) [TOFD] - System task or function '$dipslay' is not defined.
+#    Time: 0 ps  Iteration: 0  Instance: /ImageProc_tb File: I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv Line: 70
+run -all
+# RESETTING
+# waiting for oDVAL
+# ERR: timeout waiting for oDVAL to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv(56)
+#    Time: 12339245 ps  Iteration: 1  Instance: /ImageProc_tb
+# Break in NamedBeginStat odval_to at I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv line 56
+# Compile of ImageProcessing.sv was successful.
+# Compile of ImageProc_tb.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.ImageProc_tb(fast)
+# Loading work.ImageProcessing(fast)
+# Loading work.Line_Buffer2(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast)
+# Loading work.Line_Buffer3(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast__1)
+# ** Warning: (vsim-PLI-3003) [TOFD] - System task or function '$dipslay' is not defined.
+#    Time: 0 ps  Iteration: 0  Instance: /ImageProc_tb File: I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv Line: 70
+add wave -position insertpoint sim:/ImageProc_tb/iDUT/*
+run -all
+# RESETTING
+# waiting for oDVAL
+# ERR: timeout waiting for oDVAL to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv(56)
+#    Time: 12339245 ps  Iteration: 1  Instance: /ImageProc_tb
+# Break in NamedBeginStat odval_to at I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv line 56
+# Causality operation skipped due to absence of debug database file
+# Compile of ImageProc_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.ImageProc_tb(fast)
+# Loading work.ImageProcessing(fast)
+# Loading work.Line_Buffer2(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast)
+# Loading work.Line_Buffer3(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast__1)
+# ** Warning: (vsim-PLI-3003) [TOFD] - System task or function '$dipslay' is not defined.
+#    Time: 0 ps  Iteration: 0  Instance: /ImageProc_tb File: I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv Line: 72
+run -all
+# RESETTING
+# waiting for oDVAL
+# ERR: timeout waiting for oDVAL to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv(58)
+#    Time: 12339245 ps  Iteration: 1  Instance: /ImageProc_tb
+# Break in NamedBeginStat odval_to at I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv line 58
+# Compile of ImageProc_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.ImageProc_tb(fast)
+# Loading work.ImageProcessing(fast)
+# Loading work.Line_Buffer2(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast)
+# Loading work.Line_Buffer3(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast__1)
+# ** Warning: (vsim-PLI-3003) [TOFD] - System task or function '$dipslay' is not defined.
+#    Time: 0 ps  Iteration: 0  Instance: /ImageProc_tb File: I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv Line: 72
+run -all
+# RESETTING
+# waiting for oDVAL
+# PASS: got out data valid signal
+# Testing grayscale functionality
+# ** Error (suppressible): (vsim-12023) Cannot execute undefined system task/function '$dipslay'
+#    Time: 51245 ps  Iteration: 2  Process: /ImageProc_tb/#INITIAL#30 File: I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv Line: 72
+# PASS: grayscale is manipulating pixel values
+# Testing turning off grayscale
+# FAILED: toggling grayscale does not work
+# ** Note: $stop    : I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv(85)
+#    Time: 51245 ps  Iteration: 2  Instance: /ImageProc_tb
+# Break in Module ImageProc_tb at I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv line 85
+# Compile of ImageProc_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.ImageProc_tb(fast)
+# Loading work.ImageProcessing(fast)
+# Loading work.Line_Buffer2(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast)
+# Loading work.Line_Buffer3(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast__1)
+run -all
+# RESETTING
+# waiting for oDVAL
+# PASS: got out data valid signal
+# Testing grayscale functionality
+# turning on grayscale control signal
+# PASS: grayscale is manipulating pixel values
+# Testing turning off grayscale
+# FAILED: toggling grayscale does not work
+# ** Note: $stop    : I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv(85)
+#    Time: 51245 ps  Iteration: 2  Instance: /ImageProc_tb
+# Break in Module ImageProc_tb at I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv line 85
+run -all
+# ALL TEST CASES PASS
+# ** Note: $stop    : I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv(92)
+#    Time: 51245 ps  Iteration: 2  Instance: /ImageProc_tb
+# Break in Module ImageProc_tb at I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv line 92
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.ImageProc_tb(fast)
+# Loading work.ImageProcessing(fast)
+# Loading work.Line_Buffer2(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast)
+# Loading work.Line_Buffer3(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast__1)
+run -all
+# RESETTING
+# waiting for oDVAL
+# PASS: got out data valid signal
+# Testing grayscale functionality
+# turning on grayscale control signal
+# PASS: grayscale is manipulating pixel values
+# Testing turning off grayscale
+# FAILED: toggling grayscale does not work
+# ** Note: $stop    : I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv(85)
+#    Time: 51245 ps  Iteration: 2  Instance: /ImageProc_tb
+# Break in Module ImageProc_tb at I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv line 85
+# Compile of ImageProc_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.ImageProc_tb(fast)
+# Loading work.ImageProcessing(fast)
+# Loading work.Line_Buffer2(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast)
+# Loading work.Line_Buffer3(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast__1)
+run -all
+# RESETTING
+# waiting for oDVAL
+# PASS: got out data valid signal
+# Testing grayscale functionality
+# turning on grayscale control signal
+# PASS: grayscale is manipulating pixel values
+# Testing turning off grayscale
+# FAILED: toggling grayscale does not work
+# ** Note: $stop    : I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv(86)
+#    Time: 51295 ps  Iteration: 0  Instance: /ImageProc_tb
+# Break in Module ImageProc_tb at I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv line 86
+# Compile of ImageProc_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.ImageProc_tb(fast)
+# Loading work.ImageProcessing(fast)
+# Loading work.Line_Buffer2(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast)
+# Loading work.Line_Buffer3(fast)
+# Loading C:/intelFPGA_lite/23.1std/questa_fse/intel/verilog/altera_mf.altshift_taps(fast__1)
+run -all
+# RESETTING
+# waiting for oDVAL
+# PASS: got out data valid signal
+# Testing grayscale functionality
+# turning on grayscale control signal
+# PASS: grayscale is manipulating pixel values
+# Testing turning off grayscale
+# ALL TEST CASES PASS
+# ** Note: $stop    : I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv(87)
+#    Time: 51245 ps  Iteration: 2  Instance: /ImageProc_tb
+# Break in Module ImageProc_tb at I:/ece554/ECE554SP25_Minilab2/Testbench/ImageProc_tb.sv line 87
+# End time: 16:48:48 on Feb 11,2025, Elapsed time: 0:20:54
+# Errors: 0, Warnings: 2
