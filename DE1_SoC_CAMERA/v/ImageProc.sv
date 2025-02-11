@@ -4,7 +4,7 @@ module ImageProc(
     //Signals from Data Capture
     input logic [11:0] iDATA,
     //Signals to SDRAM
-    output logic [15:0] output_data,         
+    output logic [11:0] output_data,         
     output logic        output_valid
 );
 
@@ -141,8 +141,8 @@ assign conv_data_pos = ~conv_data + 1;
 assign conv_abs_val_data = (conv_data[63]) ?    ((conv_data_pos > 12'd2048) ? 12'd2048 : conv_data_pos) 
                                                 : ((conv_data > 12'd2048) ? 12'd2048 : conv_data);
 
-                                                
+
 assign output_valid = gray_calc_valid;
-assign output_data = conv_abs_val_data;
+assign output_data = gray_scale_data;
 
 endmodule

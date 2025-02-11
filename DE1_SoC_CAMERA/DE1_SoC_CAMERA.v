@@ -250,10 +250,27 @@ wire	       [11:0]			sCCD_G;
 wire	       [11:0]			sCCD_B;
 wire								sCCD_DVAL;
 
+wire	       [11:0]			sCCD_R_RGB;
+wire	       [11:0]			sCCD_G_RGB;
+wire	       [11:0]			sCCD_B_RGB;
+wire								sCCD_DVAL_RGB;
+wire        [11:0]         ImageProc_RED;
+wire        [11:0]         ImageProc_GREEN;
+wire        [11:0]         ImageProc_BLUE;
+wire                       ImageProc_oVAL;
+
+
+wire	       [11:0]			sCCD_R_EDGE;
+wire	       [11:0]			sCCD_G_EDGE;
+wire	       [11:0]			sCCD_B_EDGE;
+wire								sCCD_DVAL_EDGE;
+
 wire								sdram_ctrl_clk;
 wire	       [9:0]			oVGA_R;   				//	VGA Red[9:0]
 wire	       [9:0]			oVGA_G;	 				//	VGA Green[9:0]
 wire	       [9:0]			oVGA_B;   				//	VGA Blue[9:0]
+
+reg                        SW1_ff;
 
 //power on start
 wire             				auto_start;
@@ -316,13 +333,34 @@ RAW2RGB				u4	(
 							.iRST(DLY_RST_1),
 							.iDATA(mCCD_DATA),
 							.iDVAL(mCCD_DVAL),
-							.oRed(sCCD_R),
-							.oGreen(sCCD_G),
-							.oBlue(sCCD_B),
-							.oDVAL(sCCD_DVAL),
+							.oRed(sCCD_R_RGB),
+							.oGreen(sCCD_G_RGB),
+							.oBlue(sCCD_B_RGB),
+							.oDVAL(sCCD_DVAL_RGB),
 							.iX_Cont(X_Cont),
 							.iY_Cont(Y_Cont)
 						   );
+
+ImageProcessing   iProc(
+                     .iCLK(D5M_PIXLCLK),
+                     .iRST(DLY_RST_1),
+                     .iX_Cont(X_Cont),
+                     .iY_Cont(Y_Cont),
+                     .iDATA(mCCD_DATA),
+                     .iDVAL(mCCD_DVAL),
+                     .grayscale_cs(SW[2]),
+                     .h_edgeDetect(SW[3]),
+                     .oRed(ImageProc_RED),
+                     .oGreen(ImageProc_GREEN),
+                     .oBlue(ImageProc_BLUE),
+                     .oDVAL(ImageProc_oVAL)
+                     );
+
+// Choose between edge detection or grayscale depending on switch
+assign sCCD_R = SW[1] ? ImageProc_RED : sCCD_R_RGB;
+assign sCCD_G = SW[1] ? ImageProc_GREEN : sCCD_G_RGB;
+assign sCCD_B = SW[1] ? ImageProc_BLUE : sCCD_B_RGB;
+assign sCCD_DVAL = SW[1] ? ImageProc_oVAL : sCCD_DVAL_RGB;
 
 //Frame count display
 SEG7_LUT_6 			u5	(	
