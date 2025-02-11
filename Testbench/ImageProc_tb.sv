@@ -36,6 +36,7 @@ module ImageProc_tb();
         repeat (5) @(posedge clk);
         rst_n = 1;
 
+        //NOTE: wont behave like actual img_proc... but thats okay
         //set DUT inputs
         iY_Cont = 12'h0; 
         iX_Cont = 12'h0;
