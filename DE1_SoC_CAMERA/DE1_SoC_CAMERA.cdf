@@ -6,7 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSEMA5F31) Path("I:/ECE554/minilab2/ECE554SP25_Minilab2/DE1_SoC_CAMERA/") File("DE1_SoC_CAMERA.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSEMA5F31) Path("I:/ece554/ECE554SP25_Minilab2/DE1_SoC_CAMERA/") File("DE1_SoC_CAMERA.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

@@ -62,7 +62,7 @@ always_ff @(posedge iCLK, negedge iRST) begin
     else begin
         bayer_pixel_ff <= bayer_pixel;
         iDATA_ff <= iDATA;
-        grayscale_pixel <= {bayer_pixel_ff + bayer_pixel + iDATA + iDATA_ff} / 4;
+        grayscale_pixel <= (bayer_pixel_ff + bayer_pixel + iDATA + iDATA_ff) / 4;
     end
 end 
 
@@ -71,7 +71,7 @@ always_ff @(posedge iCLK, negedge iRST) begin
         gray_shift_en <= 0;
     end
     else begin
-        gray_shift_en <= {iY_Cont[0]|iX_Cont[0]} ? 1'b0 : iDVAL;
+        gray_shift_en <= ((!iY_Cont[0]) | (!iX_Cont[0])) ? iDVAL : 1'b0;
     end
 end
 
